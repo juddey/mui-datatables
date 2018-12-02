@@ -217,14 +217,14 @@ class MUIDataTable extends React.Component {
     this.headCellRefs[index] = el;
   };
 
-  rawColumns = cols => {
+  /*  rawColumns = cols => {
     return cols.map(item => {
       if (typeof item !== "object") return item;
 
       const { options, ...otherOpts } = item;
       return otherOpts;
     });
-  };
+  }; */
 
   /*
    *  Build the source table data
@@ -235,7 +235,8 @@ class MUIDataTable extends React.Component {
     let filterData = [];
     let filterList = [];
 
-    if (this.state.columns.length && isEqual(this.rawColumns(newColumns), this.rawColumns(this.props.columns))) {
+    //    if (this.state.columns.length && isEqual(this.rawColumns(newColumns), this.rawColumns(this.props.columns))) {
+    if (this.state.columns.length && isEqual(newColumns, this.props.columns)) {
       const { columns, filterList, filterData } = this.state;
       return { columns, filterList, filterData };
     }
